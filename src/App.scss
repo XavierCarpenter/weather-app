@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+.app-container {
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .location {
+    color: #ffff;
+    text-align: center;
+    margin-bottom: 23px;
+  }
+  .location h3 {
+    padding-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .location p {
+    font-size: 14px;
+  }
+  .forecast-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    .forecast-img {
+      background: green;
+      background-image: url("./images/Dallas.png");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      height: 368px;
+      width: 670px;
+      .current-forecast {
+        display: flex;
+        color: #65aed5;
+      }
+      .current-forecast h2 {
+        font-size: 48px;
+      }
+      .current-forecast p {
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+  }
+}

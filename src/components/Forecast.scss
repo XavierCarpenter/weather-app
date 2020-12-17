@@ -1,0 +1,42 @@
+.forecast {
+  width: 670px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  .forecast-day {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 0.5px solid #e2e2e2;
+    // box-sizing: border-box;
+
+    width: 134px;
+    height: 142px;
+    color: black;
+  }
+  .day,
+  .temp {
+    color: #4a4a4a;
+    padding: 12px 0;
+  }
+  .day {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .temp {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 800px) {
+  .forecast {
+    flex-direction: column;
+    align-items: center;
+    .forecast-day {
+      width: 100%;
+      border-right: none;
+      border-bottom: 0.5px solid #e2e2e2;
+    }
+  }
+}

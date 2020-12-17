@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import Forecast from "./components/Forecast";
+import cloudDrizzle from "./images/Cloud-Drizzle-Alt.png";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="app-container">
+      <div className="location">
+        <h3 className="city">Dallas, TX</h3>
+        <p>Saturday, Sep 16, 2018</p>
+      </div>
+      <span className="date"></span>
+      <div className="forecast-box">
+        <div className="forecast-img">
+          <div className="current-forecast">
+            <h2>93&#176;</h2>
+            <img
+              src={cloudDrizzle}
+              alt="Cloud Drizzle"
+              width="44.2"
+              height="39.3"
+            ></img>
+            <p>Partly Cloudy</p>
+            <p>12 mph</p>
+          </div>
+        </div>
+        <Forecast />
+      </div>
+    </main>
   );
 }
 
