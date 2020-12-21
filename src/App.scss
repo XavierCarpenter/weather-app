@@ -2,6 +2,7 @@
 
 .app-container {
   height: 100vh;
+  width: 100%;
   font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
@@ -24,10 +25,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
     .forecast-img {
-      background: green;
+      display: flex;
+      justify-content: space-between;
       background-image: url("./images/Dallas.png");
       background-repeat: no-repeat;
       background-size: 100%;
@@ -35,14 +36,63 @@
       width: 670px;
       .current-forecast {
         display: flex;
+        height: 200px;
         color: #65aed5;
       }
       .current-forecast h2 {
         font-size: 48px;
+        margin: 16px 8px 0 28px;
+      }
+      .current-forecast img {
+        margin: 32px 8px 0 0;
+      }
+      .weather-desc {
+        margin: 32px 0 0 0;
       }
       .current-forecast p {
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+      .unit-switch {
+        margin: 16px;
+        color: #65aed5;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .app-container {
+    // align-content: top;
+    height: 100%;
+    // margin-top: -5
+    // align-items: top;
+    .forecast-box {
+      .forecast-img {
+        width: 368px;
+        height: auto;
+
+        .current-forecast h2 {
+          font-size: 32px;
+          margin: 8px 8px 0 16px;
+        }
+        .current-forecast img {
+          margin: 16px 8px 0 0;
+        }
+        .weather-desc {
+          margin: 16px 0 0 0;
+        }
+        .unit-switch {
+          margin: 8px;
+          color: #65aed5;
+          &:hover {
+            cursor: pointer;
+          }
+        }
       }
     }
   }
