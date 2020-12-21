@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./App.scss";
 import Forecast from "./components/Forecast";
+import Location from "./components/Location";
 import cloudDrizzle from "./images/Cloud-Drizzle-Alt.png";
 import _uniqBy from "lodash.uniqby";
-import moment from "moment";
 import { Switch } from "@material-ui/core";
 
-const API_key = "302d513c633f66e83b6b0b25d89aab2f";
+const API_KEY = "302d513c633f66e83b6b0b25d89aab2f";
 
 class App extends Component {
   constructor() {
@@ -40,10 +40,10 @@ class App extends Component {
 
   getWeather = async () => {
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=Dallas&units=${this.state.unit}&appid=${API_key}`
+      `http://api.openweathermap.org/data/2.5/forecast?q=Dallas&units=${this.state.unit}&appid=${API_KEY}`
     );
     const response = await api_call.json();
-    // console.log("Original response ", response.list);
+    console.log("Original response ", response.list);
     const forecast = response.list.map((obj, i) => {
       const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       const date = new Date(obj.dt_txt);
@@ -67,13 +67,11 @@ class App extends Component {
 
     console.log("Simplified Response ", this.state.forecast);
   };
+
   render() {
     return (
       <main className="app-container">
-        <div className="location">
-          <h3 className="city">Dallas, TX</h3>
-          <p>{moment().format("dddd, MMM Do YYYY")}</p>
-        </div>
+        <Location />
         <div className="forecast-box">
           <div className="forecast-img">
             <div className="current-forecast">
@@ -93,6 +91,7 @@ class App extends Component {
               <span>F&#176;</span>
               <Switch
                 class="switch"
+                color="none"
                 onChange={(e) => this.handleChange(e)}
                 name="changeUnit"
               />

@@ -27,7 +27,7 @@ const Forecast = ({ forecast }) => {
     return weatherIcon;
   };
 
-  const forecastDetails = forecast.map((obj, i) => {
+  const forecastDetails = forecast.slice(0, 5).map((obj, i) => {
     return (
       <div className="forecast-day" key={i}>
         <p className="day">{obj.day}</p>
