@@ -40,7 +40,7 @@ class App extends Component {
 
   getWeather = async () => {
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=Dallas&units=${this.state.unit}&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=Dallas&units=${this.state.unit}&appid=${API_KEY}`
     );
     const response = await api_call.json();
     console.log("Original response ", response.list);
