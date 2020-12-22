@@ -1,22 +1,15 @@
 .forecast {
-  width: 670px;
-  position: relative;
-  height: auto;
-  background: white;
+  background: #fff;
   display: flex;
   justify-content: space-between;
-  // flex-wrap: wrap;
+  width: 670px;
+  height: 142px;
   .forecast-day {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 134px;
     align-items: center;
     border-right: 0.5px solid #e2e2e2;
-    // border-left: 0.5px solid #e2e2e2;
-    // box-sizing: border-box;
-    width: 134px;
-    height: 142px;
-    color: black;
   }
   .day,
   .temp {
@@ -32,32 +25,10 @@
   }
 }
 
-@media (max-width: 800px) {
+@media only screen and (max-width: 670px) {
   .forecast {
-    width: 368px;
-    flex-direction: column;
-    margin-bottom: 16px;
-    // height: 700px;
-    // background: green;
-    // display: inline-block;
-    // flex-direction: column;
-    // align-items: center;
-    // display: inline-block;
-    // flex-wrap: wrap;
-
-    .forecast-day {
-      width: 100%;
-      // min-width: 184px;
-      margin: 0 8px;
-      border-right: none;
-      flex-direction: row;
-      // border-right: 0.5px solid #e2e2e2;
-
-      border-bottom: 0.5px solid #e2e2e2;
-    }
-    .day,
-    .temp {
-      padding: 0 12px;
-    }
+    width: 100%;
+    min-width: 320px;
+    flex: 1;
   }
 }

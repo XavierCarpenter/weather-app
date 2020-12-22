@@ -14,7 +14,6 @@ class App extends Component {
     this.state = {
       forecast: [],
       unit: "imperial",
-      unitChanged: false,
       todaysForecast: {},
     };
     this.handleChange.bind(this);
@@ -44,6 +43,7 @@ class App extends Component {
     );
     const response = await api_call.json();
     console.log("Original response ", response.list);
+
     const forecast = response.list.map((obj, i) => {
       const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       const date = new Date(obj.dt_txt);
@@ -70,36 +70,34 @@ class App extends Component {
 
   render() {
     return (
-      <main className="app-container">
+      <main className="App">
         <Location />
-        <div className="forecast-box">
-          <div className="forecast-img">
-            <div className="current-forecast">
-              <h2>{this.state.todaysForecast.temp}&#176;</h2>
-              <img
-                src={cloudDrizzle}
-                alt="Cloud Drizzle"
-                width="44.2"
-                height="39.3"
-              ></img>
-              <div className="weather-desc">
-                <p>{this.state.todaysForecast.weatherDesc}</p>
-                <p>{this.state.todaysForecast.wind} mph</p>
-              </div>
-            </div>
-            <div className="unit-switch">
-              <span>F&#176;</span>
-              <Switch
-                class="switch"
-                color="none"
-                onChange={(e) => this.handleChange(e)}
-                name="changeUnit"
-              />
-              <span>C&#176;</span>
+        <div className="forecast-img">
+          <div className="current-forecast">
+            <h2>{this.state.todaysForecast.temp}&#176;</h2>
+            <img
+              src={cloudDrizzle}
+              alt="Cloud Drizzle"
+              width="44.2"
+              height="39.3"
+            ></img>
+            <div className="weather-desc">
+              <p>{this.state.todaysForecast.weatherDesc}</p>
+              <p>{this.state.todaysForecast.wind} mph</p>
             </div>
           </div>
-          <Forecast forecast={this.state.forecast} />
+          <div className="unit-switch">
+            <span>F&#176;</span>
+            <Switch
+              className="switch"
+              color="default"
+              onChange={(e) => this.handleChange(e)}
+              name="changeUnit"
+            />
+            <span>C&#176;</span>
+          </div>
         </div>
+        <Forecast forecast={this.state.forecast} />
       </main>
     );
   }
