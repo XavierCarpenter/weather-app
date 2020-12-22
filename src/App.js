@@ -3,6 +3,9 @@ import "./App.scss";
 import Forecast from "./components/Forecast";
 import Location from "./components/Location";
 import cloudDrizzle from "./images/Cloud-Drizzle-Alt.png";
+import cloud1 from "./images/cloud1.png";
+import cloud2 from "./images/cloud2.png";
+
 import _uniqBy from "lodash.uniqby";
 import { Switch } from "@material-ui/core";
 
@@ -73,28 +76,46 @@ class App extends Component {
       <main className="App">
         <Location />
         <div className="forecast-img">
-          <div className="current-forecast">
-            <h2>{this.state.todaysForecast.temp}&#176;</h2>
-            <img
-              src={cloudDrizzle}
-              alt="Cloud Drizzle"
-              width="44.2"
-              height="39.3"
-            ></img>
-            <div className="weather-desc">
-              <p>{this.state.todaysForecast.weatherDesc}</p>
-              <p>{this.state.todaysForecast.wind} mph</p>
+          <div class="top-text">
+            <div className="current-forecast">
+              <h2>{this.state.todaysForecast.temp}&#176;</h2>
+              <img
+                src={cloudDrizzle}
+                alt="Cloud Drizzle"
+                width="44.2"
+                height="39.3"
+              ></img>
+              <div className="weather-desc">
+                <p>{this.state.todaysForecast.weatherDesc}</p>
+                <p>{this.state.todaysForecast.wind} mph</p>
+              </div>
+            </div>
+            <div className="unit-switch">
+              <span>F&#176;</span>
+              <Switch
+                className="switch"
+                color="default"
+                onChange={(e) => this.handleChange(e)}
+                name="changeUnit"
+              />
+              <span>C&#176;</span>
             </div>
           </div>
-          <div className="unit-switch">
-            <span>F&#176;</span>
-            <Switch
-              className="switch"
-              color="default"
-              onChange={(e) => this.handleChange(e)}
-              name="changeUnit"
-            />
-            <span>C&#176;</span>
+          <div className="floating-clouds">
+            <img
+              id="cloud1"
+              src={cloud1}
+              alt="cloud2"
+              width="146"
+              height="84"
+            ></img>
+            <img
+              id="cloud2"
+              src={cloud2}
+              alt="cloud1"
+              width="208"
+              height="114"
+            ></img>
           </div>
         </div>
         <Forecast forecast={this.state.forecast} />

@@ -15,35 +15,74 @@
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: space-between;
-    .current-forecast {
+    flex-direction: column;
+    .top-text {
       display: flex;
-      height: 200px;
-      color: #65aed5;
-    }
-    .current-forecast h2 {
-      font-size: 48px;
-      font-weight: normal;
-      margin: 16px 8px 0 28px;
-    }
-    .current-forecast img {
-      margin: 32px 8px 0 0;
-    }
-    .weather-desc {
-      margin: 32px 0 0 0;
-    }
-    .current-forecast p {
-      font-size: 14px;
-      font-weight: 500;
-      text-transform: capitalize;
-    }
-    .unit-switch {
-      margin: 16px;
-      color: #65aed5;
-      &:hover {
-        cursor: pointer;
+      justify-content: space-between;
+      .current-forecast {
+        display: flex;
+        height: 200px;
+        color: #65aed5;
+      }
+      .current-forecast h2 {
+        font-size: 48px;
+        font-weight: normal;
+        margin: 16px 8px 0 28px;
+      }
+      .current-forecast img {
+        margin: 32px 8px 0 0;
+      }
+      .weather-desc {
+        margin: 32px 0 0 0;
+      }
+      .current-forecast p {
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+      .unit-switch {
+        margin: 16px;
+        color: #65aed5;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
+    .floating-clouds {
+      display: flex;
+      justify-content: space-between;
+      img {
+        // box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+        // position: absolute;
+        transform: translatey(0px);
+        animation: float 6s ease-in-out infinite;
+      }
+      #cloud1 {
+        position: absolute;
+        bottom: 20;
+        left: 27%;
+      }
+      #cloud2 {
+        position: fixed;
+        bottom: 60%;
+        right: 28%;
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    // box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    // box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    // box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
   }
 }
 
@@ -52,6 +91,16 @@
     .forecast-img {
       width: 100%;
       position: relative;
+    }
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .App {
+    .forecast-img {
+      .floating-clouds {
+        display: none;
+      }
     }
   }
 }
