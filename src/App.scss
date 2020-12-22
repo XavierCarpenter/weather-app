@@ -91,6 +91,22 @@
     .forecast-img {
       width: 100%;
       position: relative;
+      .top-text {
+        .current-forecast h2 {
+          font-size: 38px;
+          margin: 8px 4px 0 8px;
+        }
+        .current-forecast img {
+          margin: 28px 8px 0 0;
+          width: 38px;
+        }
+        .weather-desc {
+          margin: 28px 0 0 0;
+        }
+        .unit-switch {
+          margin: 8px;
+        }
+      }
     }
   }
 }
